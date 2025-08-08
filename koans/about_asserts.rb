@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
 # -*- ruby -*-
 
-require 'edgecase'
+require File.expand_path(File.dirname(__FILE__) + '/neo')
 
-class AboutAsserts < EdgeCase::Koan
+class AboutAsserts < Neo::Koan
 
   # We shall contemplate truth by testing reality, via asserts.
   def test_assert_truth
@@ -19,7 +19,7 @@ class AboutAsserts < EdgeCase::Koan
   # To understand reality, we must compare our expectations against
   # reality.
   def test_assert_equality
-    expected_value = 3
+    expected_value = __
     actual_value = 1 + 1
 
     assert expected_value == actual_value
@@ -27,7 +27,7 @@ class AboutAsserts < EdgeCase::Koan
 
   # Some ways of asserting equality are better than others.
   def test_a_better_way_of_asserting_equality
-    expected_value = 3
+    expected_value = __
     actual_value = 1 + 1
 
     assert_equal expected_value, actual_value

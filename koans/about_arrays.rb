@@ -1,9 +1,9 @@
-require 'edgecase'
+require File.expand_path(File.dirname(__FILE__) + '/neo')
 
-class AboutArrays < EdgeCase::Koan
+class AboutArrays < Neo::Koan
   def test_creating_arrays
     empty_array = Array.new
-    assert_equal Array, empty_array.class
+    assert_equal __, empty_array.class
     assert_equal __, empty_array.size
   end
 
@@ -40,13 +40,14 @@ class AboutArrays < EdgeCase::Koan
     assert_equal __, array[2,2]
     assert_equal __, array[2,20]
     assert_equal __, array[4,0]
+    assert_equal __, array[4,100]
     assert_equal __, array[5,0]
   end
 
   def test_arrays_and_ranges
-    assert_equal Range, (1..5).class
+    assert_equal __, (1..5).class
     assert_not_equal [1,2,3,4,5], (1..5)
-    assert_equal [1,2,3,4,5], (1..5).to_a
+    assert_equal __, (1..5).to_a
     assert_equal __, (1...5).to_a
   end
 
@@ -78,24 +79,6 @@ class AboutArrays < EdgeCase::Koan
     shifted_value = array.shift
     assert_equal __, shifted_value
     assert_equal __, array
-  end
-
-  def test_parallel_assignments
-    first_name, last_name = ["John", "Smith"]
-    assert_equal __, first_name
-    assert_equal __, last_name
-  end
-
-  def test_parallel_assignments_with_extra_values
-    first_name, last_name = ["John", "Smith", "III"]
-    assert_equal __, first_name
-    assert_equal __, last_name
-  end
-
-  def test_parallel_assignments_with_extra_variables
-    first_name, last_name = ["Cher"]
-    assert_equal __, first_name
-    assert_equal __, last_name
   end
 
 end
